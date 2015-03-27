@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="CE2.CE2">
+  <uses-sdk android:minSdkVersion="19" />
+  <uses-feature android:name="android.hardware.nfc.hce" android:required="true" />
+  <application android:label="CE2" android:icon="@drawable/icon" android:name="mono.android.app.Application" android:debuggable="true">
+    <service android:enabled="true" android:exported="true" android:permission="android.permission.BIND_NFC_SERVICE" android:name="ce2.CardService">
+      <meta-data android:name="android.nfc.cardemulation.host_apdu_service" android:resource="@xml/hceservice" />
+      <intent-filter>
+        <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
+      </intent-filter>
+    </service>
+    <activity android:icon="@drawable/icon" android:label="CardEmulation" android:name="ce2.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="CE2.CE2.mono.MonoRuntimeProvider.__mono_init__" />
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.CE2.CE2" />
+      </intent-filter>
+    </receiver>
+  </application>
+  <uses-permission android:name="android.permission.NFC" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+</manifest>

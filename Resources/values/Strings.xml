@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, Click Me!</string>
+	<string name="app_name">CardEmulation</string>
+	<string name="card_title">Sample Loyalty Card</string>
+	<string name="hce_service_description">An example payment Service from Xamarin</string> 
+ 	<string name="aid_group_description">Payment group</string> 
+
+</resources>
